@@ -1,0 +1,36 @@
+package com.owen.javabasics.chapter08;
+
+import org.junit.Test;
+
+import static org.junit.Assert.fail;
+
+/**
+ * Demonstration of autoboxing and unboxing
+ * 
+ * @author OwenWilliam 2016-9-16
+ *
+ */
+public class BoxingNullPointer
+{
+
+	@Test
+	public void primitiveNullPointer()
+	{
+		final Integer intObject = 42;
+		assert (intObject == 42);
+
+		try
+		{
+			final int newIntValue = methodWhichMayReturnNull(intObject);
+			fail("Assignment of null to primitive should throw NPE");
+		} catch (NullPointerException e)
+		{
+			// do nothing, test passed
+		}
+	}
+
+	private Integer methodWhichMayReturnNull(Integer intValue)
+	{
+		return null;
+	}
+}
